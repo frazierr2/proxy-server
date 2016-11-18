@@ -25,11 +25,11 @@ var yelp = new Yelp({
 });
 
 
-var food = req.query.food;
+var restaurants = req.query.restaurants;
 var location = req.query.location;
 
 yelp
-  .search({ term: food, location: location })
+  .search({ term: restaurants, location: location })
   .then(function (data){
     res.send(data);
   }).catch(console.error);
