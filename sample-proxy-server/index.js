@@ -2,6 +2,7 @@ var express = require('express');
 var request = require('request');
 var app = express();
 var cors = require('cors');
+var Yelp = require('yelp');
 
 app.use(cors()); //allows overriding cross origin policy (use npm install if needed)
 
@@ -12,6 +13,27 @@ app.get('/test', function(req, res){ // listens for request on /api route
 
 /* PUT YOUR CODE BETWEEN COMMENTS */
 
+app.get('/search', function(req, res){ // listens for request on /api route
+ console.log('test api!');
+ // res.send('working api!');
+
+var yelp = new Yelp({
+  consumer_key: 'frAtJ6_psM_AKxr_NEHDOQ',
+  consumer_secret: '2aHkYmEMlBZNZODSW0s_bMkfWwo',
+  token: 'KkyAExpUdBZt63mf4ZTBsrxkr3EROtEZ',
+  token_secret: 'HUMqGLWhkq9KtL_mXzH5GBiasLA',
+});
+
+
+var food = req.query.food;
+var location = req.query.location;
+
+yelp
+  .search({ term: food, location: location })
+  .then(function (data){
+    res.send(data);
+  }).catch(console.error);
+});
 
 
 /* PUT YOUR CODE ABOVE THIS COMMENT */
