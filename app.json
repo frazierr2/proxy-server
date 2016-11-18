@@ -1,0 +1,8 @@
+{
+  "name": "SampleProxy",
+  "description": "Sample Proxy",
+  "repository": "https://github.com/frazierr2/proxy-server/tree/master/sample-proxy-server",
+  "logo": "http://node-js-sample.herokuapp.com/node.svg",
+  "keywords": ["node", "express", "static"],
+  "image": "heroku/nodejs"
+}
